@@ -2,12 +2,14 @@ let gameStarted = false;
 
 let boundary = $(".boundary");
 $(".won").hide();
+$(".lost").hide();
 
 $(document).ready(() => {
   $("#start").on("click", () => {
     gameStarted = true;
     $("#status").html("Started");
     boundary.removeClass("lose-status");
+    $(".lost").hide();
     $(".won").hide();
   });
 
@@ -16,6 +18,7 @@ $(document).ready(() => {
       $("#status").html('Click the "S" to begin.');
       gameStarted = false;
       boundary.addClass("lose-status");
+      $(".lost").show();
 
       setTimeout(() => {
         alert("You Lost!!");
@@ -28,6 +31,7 @@ $(document).ready(() => {
       $("#status").html('Click the "S" to begin.');
       gameStarted = false;
       boundary.addClass("lose-status");
+      $(".lost").show();
       setTimeout(() => {
         alert("You Lost!!");
       }, 50);
